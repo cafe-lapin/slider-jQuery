@@ -1,0 +1,68 @@
+<html>
+    <head>
+        <title>Slider Jquery</title>
+        <link rel="stylesheet" href="./slider.css">
+        <style>
+            h1 {
+                text-align: center;
+            }
+            pre {
+                background-color: rgb(207, 207, 207);
+                padding: 20px;
+            }
+            #s1 {
+                background-color: blue;
+            }
+            #s2 {
+                background-color: red;
+            }
+            #s3 {
+                background-color: green;
+            }
+            #s4 {
+                background-color: skyblue;
+            }
+            #s5 {
+                background-color: yellow;
+            }
+        </style>
+    </head>
+    <body>
+        <h1>Slider Jquery</h1>
+        <div class="slider-wrapper">
+            <div class="slide" id="s1">
+                ①
+            </div>
+            <div class="slide" id="s2">
+                ②
+            </div>
+            <div class="slide" id="s3">
+                ③
+            </div>
+            <div class="slide" id="s4">
+                ④
+            </div>
+            <div class="slide" id="s5">
+                ⑤
+            </div>
+        </div>
+
+        <pre>
+            function nextSlide() {
+                var sliders = $('.slider-wrapper .slide')
+                for(var i=0;i<$('.slider-wrapper .slide').length;i++){
+                    var currSlider = $(sliders[i]);
+                    if(currSlider.attr('data') == '0') currSlider.attr('data',  sliders.length - 1);
+                    else currSlider.attr('data',  currSlider.attr('data') - 1);
+                }
+            }
+        </pre>
+        <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <script src="./slider.js"></script>
+        <script>
+            var interval = 1000; // 1000ms;
+            initSlide();
+            setInterval(nextSlide, interval);
+        </script>
+    </body>
+</html>
